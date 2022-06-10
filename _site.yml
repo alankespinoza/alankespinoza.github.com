@@ -1,0 +1,13 @@
+name: 'Alan Espinoza'
+output_dir: "." 
+navbar:
+  title: "My resume Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Project"
+      href: SectorFF.html
+    - text: "Resume"
+      href: PCV.html

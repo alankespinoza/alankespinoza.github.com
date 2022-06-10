@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Tilina, Alan, Kenedi, and Shelby" />
+
+<meta name="date" content="2022-06-10" />
+
+<title>Greenhouse Gas Emissions</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My resume Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="SectorFF.html">Project</a>
+</li>
+<li>
+  <a href="PCV.html">Resume</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Greenhouse Gas Emissions</h1>
+<h4 class="author">Tilina, Alan, Kenedi, and Shelby</h4>
+<h4 class="date">2022-06-10</h4>
+
+</div>
+
+
+<div id="present-day-patterns-in-co2-emissions" class="section level1">
+<h1>1. Present-Day Patterns in Co2 Emissions</h1>
+<div id="entities" class="section level2">
+<h2>Entities</h2>
+<p>Entities with the Highest Co2 Emissions:</p>
+<p><img src="SectorFF_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Entities with the Lowest Co2 Emissions:</p>
+<p><img src="SectorFF_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="sectors" class="section level2">
+<h2>Sectors</h2>
+<p>Sectors with the Highest and Lowest Co2 Emissions:</p>
+<p><img src="SectorFF_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="countries" class="section level2">
+<h2>Countries</h2>
+<p>Regions with highest Emissions:
+<img src="SectorFF_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+</div>
+<div id="long-term-trends-in-carbon-emissions-over-time"
+class="section level1">
+<h1>2. Long-Term Trends in Carbon Emissions Over Time</h1>
+<p>Sector-by-Sector:</p>
+<p><img src="SectorFF_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Country-by-Country:
+<img src="SectorFF_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>Globally:</p>
+<p><img src="SectorFF_files/figure-html/unnamed-chunk-12-1.png" width="672" /><img src="SectorFF_files/figure-html/unnamed-chunk-12-2.png" width="672" /><img src="SectorFF_files/figure-html/unnamed-chunk-12-3.png" width="672" /><img src="SectorFF_files/figure-html/unnamed-chunk-12-4.png" width="672" /></p>
+</div>
+<div id="details-on-these-trends-in-the-top-5-most-emitting-countries"
+class="section level1">
+<h1>3. Details on These Trends in the Top 5 Most-Emitting Countries</h1>
+<div id="htmlwidget-6faaff16738a1c6f47fc" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6faaff16738a1c6f47fc">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[9.5006,160.63124,72.46681,16.44058,34.14244,11.64308,24.27251,44.68758,117.11236,706.1494],"x":[1,2,3,4,5,6,7,8,9,10],"y":[8.87508,13.01503,7.59333000000001,1.20965,12.77225,3.14674,0.448499999999999,1.8908,7.1028,104.03264],"text":["country: Brazil<br />total/1000000000:   8.87508<br />sector: Agriculture","country: China<br />total/1000000000:  13.01503<br />sector: Agriculture","country: European Union (27)<br />total/1000000000:   7.59333<br />sector: Agriculture","country: Germany<br />total/1000000000:   1.20965<br />sector: Agriculture","country: India<br />total/1000000000:  12.77225<br />sector: Agriculture","country: Indonesia<br />total/1000000000:   3.14674<br />sector: Agriculture","country: Japan<br />total/1000000000:   0.44850<br />sector: Agriculture","country: Russia<br />total/1000000000:   1.89080<br />sector: Agriculture","country: United States<br />total/1000000000:   7.10280<br />sector: Agriculture","country: World<br />total/1000000000: 104.03264<br />sector: Agriculture"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Agriculture","legendgroup":"Agriculture","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[8.08585,94.38966,47.40326,9.56351,18.66149,8.68481,13.72391,26.97685,69.09595,449.5497],"x":[1,2,3,4,5,6,7,8,9,10],"y":[1.41475,66.24158,25.06355,6.87707,15.48095,2.95827,10.5486,17.71073,48.01641,256.5997],"text":["country: Brazil<br />total/1000000000:   1.41475<br />sector: Electricity and heat","country: China<br />total/1000000000:  66.24158<br />sector: Electricity and heat","country: European Union (27)<br />total/1000000000:  25.06355<br />sector: Electricity and heat","country: Germany<br />total/1000000000:   6.87707<br />sector: Electricity and heat","country: India<br />total/1000000000:  15.48095<br />sector: Electricity and heat","country: Indonesia<br />total/1000000000:   2.95827<br />sector: Electricity and heat","country: Japan<br />total/1000000000:  10.54860<br />sector: Electricity and heat","country: Russia<br />total/1000000000:  17.71073<br />sector: Electricity and heat","country: United States<br />total/1000000000:  48.01641<br />sector: Electricity and heat","country: World<br />total/1000000000: 256.59970<br />sector: Electricity and heat"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Electricity and heat","legendgroup":"Electricity and heat","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[5.85088,36.44598,35.43786,7.1657,9.95758,6.40589,8.39675,22.29358,56.19193,305.69447],"x":[1,2,3,4,5,6,7,8,9,10],"y":[2.23497,57.94368,11.9654,2.39781,8.70391,2.27892,5.32716,4.68327,12.90402,143.85523],"text":["country: Brazil<br />total/1000000000:   2.23497<br />sector: Manufacturing and construction","country: China<br />total/1000000000:  57.94368<br />sector: Manufacturing and construction","country: European Union (27)<br />total/1000000000:  11.96540<br />sector: Manufacturing and construction","country: Germany<br />total/1000000000:   2.39781<br />sector: Manufacturing and construction","country: India<br />total/1000000000:   8.70391<br />sector: Manufacturing and construction","country: Indonesia<br />total/1000000000:   2.27892<br />sector: Manufacturing and construction","country: Japan<br />total/1000000000:   5.32716<br />sector: Manufacturing and construction","country: Russia<br />total/1000000000:   4.68327<br />sector: Manufacturing and construction","country: United States<br />total/1000000000:  12.90402<br />sector: Manufacturing and construction","country: World<br />total/1000000000: 143.85523<br />sector: Manufacturing and construction"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Manufacturing and construction","legendgroup":"Manufacturing and construction","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[3.45116,11.35453,19.66846,3.58168,3.66164,1.91564,5.10534,4.9066,35.22481,151.87406],"x":[1,2,3,4,5,6,7,8,9,10],"y":[2.39972,25.09145,15.7694,3.58402,6.29594,4.49025,3.29141,17.38698,20.96712,153.82041],"text":["country: Brazil<br />total/1000000000:   2.39972<br />sector: Other","country: China<br />total/1000000000:  25.09145<br />sector: Other","country: European Union (27)<br />total/1000000000:  15.76940<br />sector: Other","country: Germany<br />total/1000000000:   3.58402<br />sector: Other","country: India<br />total/1000000000:   6.29594<br />sector: Other","country: Indonesia<br />total/1000000000:   4.49025<br />sector: Other","country: Japan<br />total/1000000000:   3.29141<br />sector: Other","country: Russia<br />total/1000000000:  17.38698<br />sector: Other","country: United States<br />total/1000000000:  20.96712<br />sector: Other","country: World<br />total/1000000000: 153.82041<br />sector: Other"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Other","legendgroup":"Other","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9,0.9,0.9,0.9,0.899999999999999,0.899999999999999,0.899999999999999],"base":[0,0,0,0,0,0,0,0,0,0],"x":[1,2,3,4,5,6,7,8,9,10],"y":[3.45116,11.35453,19.66846,3.58168,3.66164,1.91564,5.10534,4.9066,35.22481,151.87406],"text":["country: Brazil<br />total/1000000000:   3.45116<br />sector: Transport","country: China<br />total/1000000000:  11.35453<br />sector: Transport","country: European Union (27)<br />total/1000000000:  19.66846<br />sector: Transport","country: Germany<br />total/1000000000:   3.58168<br />sector: Transport","country: India<br />total/1000000000:   3.66164<br />sector: Transport","country: Indonesia<br />total/1000000000:   1.91564<br />sector: Transport","country: Japan<br />total/1000000000:   5.10534<br />sector: Transport","country: Russia<br />total/1000000000:   4.90660<br />sector: Transport","country: United States<br />total/1000000000:  35.22481<br />sector: Transport","country: World<br />total/1000000000: 151.87406<br />sector: Transport"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Transport","legendgroup":"Transport","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":43.1050228310502},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"Top 10 Countries with highest C02 Emission","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,10.6],"tickmode":"array","ticktext":["Brazil","China","European Union (27)","Germany","India","Indonesia","Japan","Russia","United States","World"],"tickvals":[1,2,3,4,5,6,7,8,9,10],"categoryorder":"array","categoryarray":["Brazil","China","European Union (27)","Germany","India","Indonesia","Japan","Russia","United States","World"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"Continents","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-40.509102,850.691142],"tickmode":"array","ticktext":["0","200","400","600","800"],"tickvals":[0,200,400,600,800],"categoryorder":"array","categoryarray":["0","200","400","600","800"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Total in Billions","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"453063426f78":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"453063426f78","visdat":{"453063426f78":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
